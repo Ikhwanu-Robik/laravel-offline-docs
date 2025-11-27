@@ -14,3 +14,6 @@ markdown rendering.
 2. ``` cd laravel-offline-docs ```
 3. Create a shortcut pointing to index.html
 4. Access the app by clicking on the shortcut
+
+# Screenshots
+![screenshot of index.html](https://ibb.co.com/Kckmr1jP "screenshot of index.html")
