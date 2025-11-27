@@ -1,7 +1,16 @@
-# Laravel Documentation
+# Laravel Offline Documentation
 
-You can find the online version of the Laravel documentation at [https://laravel.com/docs](https://laravel.com/docs)
+A simple table of contents page listing links to markdown files in the same directory.
+Because it only use one HTML file, it can entirely be accessed with file:// protocol,
+thus eliminating the need of a server.
 
-## Contribution Guidelines
+## Prerequisites
+You must have a markdown viewer extension on your web browser.
+One that converts any link opening .md file to a correct
+markdown rendering.
 
-If you are submitting documentation for the **current stable release**, submit it to the corresponding branch. For example, documentation for Laravel 12 would be submitted to the `12.x` branch. Documentation intended for the next release of Laravel should be submitted to the `master` branch.
+## Installation
+1. ``` git clone https://github.com/Ikhwanu-Robik/laravel-offline-docs ```
+2. ``` cd laravel-offline-docs ```
+3. Create a shortcut pointing to index.html
+4. Access the app by clicking on the shortcut
