@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laravel 12 Documentation</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: sans-serif;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+      }
+
+      ul {
+        list-style-type: none;
+      }
+
+      .code-snippet {
+        font-family: 'Courier New', Courier, monospace;
+      }
+
+      h1 {
+        background-color: rgb(255, 13, 0);
+        width: 100%;
+        padding: 1em 2em;
+        color: white;
+      }
+
+      #toc-container {
+        background-color: rgb(233, 233, 233);
+        padding: 1.5em;
+      }
+
+      a {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Laravel 12 Documentation</h1>
+    <div id="toc-container">
+      <h2>Table of Contents</h2>
+      
+      <ul id="table-of-contents"></ul>
+    </div>
+
+    <details>
+      <summary>How do I add entry?</summary>
+      <i>to add entry, modify the </i><span class="code-snippet">markdowns</span><i>
+      constant of the script tag in the source code.</i>
+    </details>
+    <script>
+      const markdownGroups = {
+        Prologue: ["releases.md", "upgrade.md", "contributions.md"],
+        "Getting Started": [
+          "installation.md",
+          "configuration.md",
+          "structure.md",
+          "frontend.md",
+          "starter-kits.md",
+          "deployment.md",
+        ],
+        "Architecture Concept": [
+          "lifecycle.md",
+          "container.md",
+          "providers.md",
+          "facades.md",
+        ],
+        "The Basics": [
+          "routing.md",
+          "middleware.md",
+          "csrf.md",
+          "controllers.md",
+          "requests.md",
+          "responses.md",
+          "redirects.md",
+          "views.md",
+          "blade.md",
+          "vite.md",
+          "urls.md",
+          "session.md",
+          "validation.md",
+          "errors.md",
+          "logging.md",
+        ],
+        "Digging Deeper": [
+          "artisan.md",
+          "broadcasting.md",
+          "cache.md",
+          "collections.md",
+          "concurrency.md",
+          "context.md",
+          "contracts.md",
+          "events.md",
+          "filesystem.md",
+          "helpers.md",
+          "http-client.md",
+          "localization.md",
+          "mail.md",
+          "notifications.md",
+          "packages.md",
+          "processes.md",
+          "queues.md",
+          "rate-limiting.md",
+          "strings.md",
+          "scheduling.md",
+        ],
+        Security: [
+          "authentication.md",
+          "authorization.md",
+          "verification.md",
+          "encryption.md",
+          "hashing.md",
+          "passwords.md",
+        ],
+        Database: [
+          "database.md",
+          "queries.md",
+          "pagination.md",
+          "migrations.md",
+          "seeding.md",
+          "redis.md",
+          "mongodb.md",
+        ],
+        "Eloquent ORM": [
+          "eloquent.md",
+          "eloquent-relationships.md",
+          "eloquent-collections.md",
+          "eloquent-mutators.md",
+          "eloquent-resources.md",
+          "eloquent-serialization.md",
+          "eloquent-factories.md",
+        ],
+        Testing: [
+          "testing.md",
+          "http-tests.md",
+          "console-tests.md",
+          "database-testing.md",
+          "mocking.md",
+        ],
+        Packages: [
+          "billing.md",
+          "mcp.md",
+          "cashier-paddle.md",
+          "dusk.md",
+          "envoy.md",
+          "folio.md",
+          "fortify.md",
+          "homestead.md",
+          "horizon.md",
+          "mix.md",
+          "octane.md",
+          "passport.md",
+          "pennant.md",
+          "pint.md",
+          "precognition.md",
+          "prompts.md",
+          "pulse.md",
+          "reverb.md",
+          "sail.md",
+          "sanctum.md",
+          "scout.md",
+          "socialite.md",
+          "telescope.md",
+          "valet.md",
+        ],
+        License: ["license.md"],
+      };
+
+      const filePath = "file://C:/laragon/www/laravel-12-docs/";
+
+      function removeExtension(fileName) {
+        let parts = fileName.split('.');
+        let fileNameOnly = parts[0];
+        return fileNameOnly;
+      }
+
+      function createTocItem(fileName) {
+        let url = filePath + fileName;
+
+        let link = document.createElement("a");
+        link.setAttribute("href", url);
+        link.textContent = removeExtension(fileName);
+
+        let li = document.createElement("li");
+        li.appendChild(link);
+
+        return li;
+      }
+
+      function createSummary(textContent) {
+        let summary = document.createElement("summary");
+        summary.textContent = textContent;
+        return summary;
+      }
+
+      let tableOfContents = document.getElementById("table-of-contents");
+
+      for (let groupName in markdownGroups) {
+        let group = markdownGroups[groupName];
+
+        let summary = createSummary(groupName);
+        let detail = document.createElement("details");
+        detail.appendChild(summary);
+
+        let groupList = document.createElement("ul");
+        group.map((markdown) => {
+          let tocItem = createTocItem(markdown);
+          groupList.appendChild(tocItem);
+        });
+
+        detail.appendChild(groupList);
+
+        let detailListItem = document.createElement("li");
+        detailListItem.appendChild(detail);
+        tableOfContents.appendChild(detailListItem);
+      }
+    </script>
+  </body>
+</html>
