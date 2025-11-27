@@ -16,4 +16,4 @@ markdown rendering.
 4. Access the app by clicking on the shortcut
 
 # Screenshots
-![screenshot of index.html](https://ibb.co.com/Kckmr1jP "screenshot of index.html")
+![screenshot of index.html](https://i.ibb.co.com/bjZ7Kfg0/Screenshot-201.png "screenshot of index.html")
